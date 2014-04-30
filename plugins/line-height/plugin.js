@@ -36,8 +36,12 @@ CKEDITOR.plugins.add( 'line-height', {
 
             var style = new CKEDITOR.style({styles: {'line-height': value}});
         
-	    style.applyToObject( ep.elements[0], editor )
-            
+	    for (var i = 0; i < ep.elements.length; i++) {
+		    if ( ep.elements[i].getName() === "p" ) {
+			style.applyToObject( ep.elements[i], editor )
+		    }    
+            }
+
             editor.fire('saveSnapshot');
           }
         });
