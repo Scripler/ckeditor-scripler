@@ -183,7 +183,7 @@ CKEDITOR.plugins.add( 'scripler', {
 			//editableBody.addEventListener ("paste", onPaste, false);
 			//editableBody.addEventListener ("beforepaste", onPaste, false);
         
-			var editorDocument;
+			var editorDocument = CKEDITOR.instances[instanceName].window.$.document;
 			var editorId = editor.id;
 			toolbarObj = document.getElementById( editorId+'_top' );
 			editorObj = document.getElementById( editorId+'_contents' );
@@ -200,106 +200,7 @@ CKEDITOR.plugins.add( 'scripler', {
 			editableBody.onblur = function () {inFocus = false; hideToolbar(true);};
 			editableBody.onfocus = function () {inFocus = true; showToolbar();};
 			toolbarObj.onmouseover = showToolbar;
-
-
-			//Drag'n'Drop stuff from http://html5demos.com/dnd-upload
-			var tests = {
-				  filereader: typeof FileReader != 'undefined',
-				  dnd: 'draggable' in document.createElement('span'),
-				  formdata: !!window.FormData,
-				  progress: "upload" in new XMLHttpRequest
-				}, 
-				support = {
-				  filereader: document.getElementById('filereader'),
-				  formdata: document.getElementById('formdata'),
-				  progress: document.getElementById('progress')
-				},
-				progress = document.getElementById('uploadprogress'),
-				fileupload = document.getElementById('upload');
-			
-			"filereader formdata progress".split(' ').forEach(function (api) {
-			  if (tests[api] === false) {
-				support[api].className = 'fail';
-			  } else {
-				support[api].className = 'hidden';
-			  }
-			});
-			initEventsListeners();
-			
-			function initEventsListeners() {
-				editorDocument = CKEDITOR.instances[instanceName].window.$.document;
-				
-				editorDocument.onmousemove = showToolbar;
-				
-				if (tests.dnd) { 
-				  //Drag'n'Drop supported
-				  editorDocument.ondragover = function () { this.className = 'hover'; return false; };
-				  editorDocument.ondragend = function () { this.className = ''; return false; };
-				  editorDocument.ondrop = function (e) {
-					this.className = '';
-					e.preventDefault();
-					readfiles(e.dataTransfer.files);
-				  }
-				} else {
-				  //Drag'n'Drop NOT supported
-				  fileupload.className = '';
-				  fileupload.querySelector('input').onchange = function () {
-					readfiles(this.files);
-				  };
-				}
-			}
-			
-
-			function readfiles(files) {
-				//debugger;
-				maskElm.style.display = 'block';
-				var formData = tests.formdata ? new FormData() : null;
-				for (var i = 0; i < files.length; i++) {
-				  if (tests.formdata) formData.append('file', files[i]);
-				  //previewfile(files[i]);
-				  //console.log('File: ' + files[i]);
-				}
-
-				// now post a new XHR request
-				if (tests.formdata) {
-				  var xhr = new XMLHttpRequest();
-				  xhr.open('POST', 'http://scripler.dk/document/upload');
-				  xhr.onreadystatechange=function(){
-					if (xhr.readyState==4 && xhr.status==200) {
-						console.log('Done 1');
-					} else {
-						//console.log('Could not upload...: ' + JSON.stringify(xhr));
-						maskElm.style.display = 'none';
-					}
-				  }
-				  xhr.onload = function() {
-					console.log('Done 2');
-					progress.value = progress.innerHTML = 100;
-					//Upload done
-					//console.log(this.responseText);
-					CKEDITOR.instances[instanceName].setData(this.responseText, function() {
-						//Seems like we need to redo event attachments after every DnD (in Chrome at least)
-						initEventsListeners();
-						maskElm.style.display = 'none';
-					});
-				  };
-
-				  if (tests.progress) {
-					xhr.upload.onprogress = function (event) {
-					  if (event.lengthComputable) {
-						var complete = (event.loaded / event.total * 100 | 0);
-						progress.value = progress.innerHTML = complete;
-					  }
-					}
-				  }
-
-				  xhr.send(formData);
-				}
-			}
-					
-			
+			editorDocument.onmousemove = showToolbar;
         });
-	
-		
     }
 });
