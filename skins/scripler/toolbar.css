@@ -249,7 +249,7 @@ buttons into sub-groups. */
   margin: 0px 5px 0px 0px;
   height: 18px;
 
-  
+
 }
 
 .cke_rtl .cke_toolbar_separator
@@ -264,6 +264,7 @@ Once it is placed, the very next toolbar is moved to the new row. */
 {
   display: block;
   clear: left;
+  padding-top: 3px;
 }
 
 .cke_rtl .cke_toolbar_break
