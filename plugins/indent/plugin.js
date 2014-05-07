@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @license Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
@@ -27,14 +27,14 @@
 			// Create and register toolbar button if possible.
 			if ( editor.ui.addButton ) {
 				editor.ui.addButton( 'Indent', {
-					label: editor.lang.indent.indent,
+					label: 'Increase margin left',
 					command: 'indent',
 					directional: true,
 					toolbar: 'indent,20'
 				} );
 
 				editor.ui.addButton( 'Outdent', {
-					label: editor.lang.indent.outdent,
+					label: 'Decrease margin left',
 					command: 'outdent',
 					directional: true,
 					toolbar: 'indent,10'
