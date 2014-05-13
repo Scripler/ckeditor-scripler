@@ -30,14 +30,16 @@
 					label: 'Increase margin left',
 					command: 'indent',
 					directional: true,
-					toolbar: 'indent,20'
+					toolbar: 'indent,20',
+					icon: CKEDITOR.plugins.getPath('indent') + 'icons/arrow-up.png'
 				} );
 
 				editor.ui.addButton( 'Outdent', {
 					label: 'Decrease margin left',
 					command: 'outdent',
 					directional: true,
-					toolbar: 'indent,10'
+					toolbar: 'indent,10',
+					icon: CKEDITOR.plugins.getPath('indent') + 'icons/arrow-down.png'
 				} );
 			}
 

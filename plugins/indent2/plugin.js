@@ -357,7 +357,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 	CKEDITOR.plugins.add( 'indent2',
 	{
-    lang: ['en', 'pl'],
+    lang: ['en'],
 		init : function( editor )
 		{
 			// Register commands.
@@ -369,13 +369,13 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				{
 					label : 'Increase right margin',
 					command : 'indent2',
-					icon: CKEDITOR.plugins.getPath('indent2') + 'icons/indent-rtl.png'
+					icon: CKEDITOR.plugins.getPath('indent2') + 'icons/arrow-up.png'
 				});
 			editor.ui.addButton( 'Outdent2',
 				{
 					label : 'Decrease right margin',
 					command : 'outdent2',
-					icon: CKEDITOR.plugins.getPath('indent2') + 'icons/outdent-rtl.png'
+					icon: CKEDITOR.plugins.getPath('indent2') + 'icons/arrow-down.png'
 				});
 
       // add new buttons next to the original Indent & Outdent
