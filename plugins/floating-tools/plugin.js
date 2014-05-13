@@ -89,6 +89,11 @@
 						continue;
 					}
 
+					if ( row === '#') {
+						output.push( '<span class="cke_toolbar_break_arrows"></span>' );
+						continue;
+					}
+
 					items = row.items || row;
 
 					// Create all items defined for this toolbar.
@@ -459,7 +464,7 @@
 						group = config[ i ];
 						newGroup = {};
 
-						if ( group == '/' )
+						if ( group == '/' || group == '#' )
 							toolbar.push( group );
 						else if ( CKEDITOR.tools.isArray( group) ) {
 							fillGroup( newGroup, CKEDITOR.tools.clone( group ) );
