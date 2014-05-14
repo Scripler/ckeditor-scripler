@@ -92,6 +92,9 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		if ( name == 'indentbottom' || name == 'outdentbottom' ) {
 			return 'margin-bottom';
 		}
+		if ( name == 'indenttext' || name == 'outdenttext' ) {
+			return 'text-indent';
+		}
 	}
 
 	function isListItem( node )
@@ -269,7 +272,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 					if ( isNaN( currentOffset ) )
 						currentOffset = 0;
 					var indentOffset = editor.config.indentOffset || 40;
-					currentOffset += ( self.name == 'indenttop' || self.name == 'indentbottom' ? 1 : -1 ) * indentOffset;
+					currentOffset += ( self.name == 'indenttop' || self.name == 'indentbottom' || self.name == 'indenttext' ? 1 : -1 ) * indentOffset;
 
 					if ( currentOffset < 0 )
 						return false;
@@ -344,7 +347,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 					// Indent the entire list if cursor is inside the first list item. (#3893)
 					// Only do that for indenting or when using indent classes or when there is something to outdent. (#6141)
 					if ( !( indentWholeList &&
-						( self.name == 'indenttop' || self.name = 'indentbottom' || self.useIndentClasses || parseInt( nearestListBlock.getStyle( getIndentCssProperty( self.name ) ), 10 ) ) &&
+						( self.name == 'indenttop' || self.name == 'indentbottom' || self.name == 'indenttext' || self.useIndentClasses || parseInt( nearestListBlock.getStyle( getIndentCssProperty( self.name ) ), 10 ) ) &&
 							indentElement( nearestListBlock, !hasMultipleItems && firstListItem.getDirection() ) ) )
 								indentList( nearestListBlock );
 				}
@@ -368,7 +371,9 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			var indentTop = editor.addCommand( 'indentTop', new indentCommand( editor, 'indentTop' ) ),
 				outdentTop = editor.addCommand( 'outdentTop', new indentCommand( editor, 'outdentTop' ) ),
 				indentBottom = editor.addCommand( 'indentBottom', new indentCommand( editor, 'indentBottom' ) ),
-				outdentBottom = editor.addCommand( 'outdentBottom', new indentCommand( editor, 'outdentBottom' ) );
+				outdentBottom = editor.addCommand( 'outdentBottom', new indentCommand( editor, 'outdentBottom' ) ),
+				indentText = editor.addCommand( 'indentText', new indentCommand( editor, 'indentText' ) ),
+				outdentText = editor.addCommand( 'outdentText', new indentCommand( editor, 'outdentText' ) );
 
 			// Register the toolbar buttons.
 			editor.ui.addButton( 'IndentTop',
@@ -393,6 +398,18 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				{
 					label : 'Decrease bottom margin',
 					command : 'outdentBottom',
+					icon: CKEDITOR.plugins.getPath('indent-top') + 'icons/arrow-down.png'
+				});
+			editor.ui.addButton( 'IndentText',
+				{
+					label : 'Increase text indent',
+					command : 'indentText',
+					icon: CKEDITOR.plugins.getPath('indent-top') + 'icons/arrow-up.png'
+				});
+			editor.ui.addButton( 'OutdentText',
+				{
+					label : 'Decrease text indent',
+					command : 'outdentText',
 					icon: CKEDITOR.plugins.getPath('indent-top') + 'icons/arrow-down.png'
 				});
 
