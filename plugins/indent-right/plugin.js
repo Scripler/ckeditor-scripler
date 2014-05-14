@@ -33,11 +33,11 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 		var outdentCommand = editor.commands.outdent2;
 		var indent = parseInt( firstBlock.getStyle( getIndentCssProperty( firstBlock ) ), 10 );
-		if ( !this.useIndentClasses && this.name == 'indent2' && indent > 0) {
+		if ( !this.useIndentClasses && this.name == 'indentright' && indent > 0) {
 			outdentCommand.setState( CKEDITOR.TRISTATE_ENABLED );
 		}
 
-		if ( !this.useIndentClasses && this.name == 'indent2' )
+		if ( !this.useIndentClasses && this.name == 'indentright' )
 			return this.setState( CKEDITOR.TRISTATE_ENABLED );
 
 		if ( !firstBlock )
@@ -52,8 +52,8 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				indentClass = indentClass[1];
 				indentStep = this.indentClassMap[ indentClass ];
 			}
-			if ( ( this.name == 'outdent2' && !indentStep ) ||
-					( this.name == 'indent2' && indentStep == editor.config.indentClasses.length ) )
+			if ( ( this.name == 'outdentright' && !indentStep ) ||
+					( this.name == 'indentright' && indentStep == editor.config.indentClasses.length ) )
 				return this.setState( CKEDITOR.TRISTATE_DISABLED );
 			return this.setState( CKEDITOR.TRISTATE_OFF );
 		}
@@ -140,7 +140,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 						break;
 					}
 				}
-				var indentOffset = self.name == 'indent2' ? 1 : -1,
+				var indentOffset = self.name == 'indentright' ? 1 : -1,
 					startItem = itemsToMove[0],
 					lastItem = itemsToMove[ itemsToMove.length - 1 ];
 
@@ -264,7 +264,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 					if ( isNaN( currentOffset ) )
 						currentOffset = 0;
 					var indentOffset = editor.config.indentOffset || 40;
-					currentOffset += ( self.name == 'indent2' ? 1 : -1 ) * indentOffset;
+					currentOffset += ( self.name == 'indentright' ? 1 : -1 ) * indentOffset;
 
 					if ( currentOffset < 0 )
 						return false;
@@ -339,7 +339,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 					// Indent the entire list if cursor is inside the first list item. (#3893)
 					// Only do that for indenting or when using indent classes or when there is something to outdent. (#6141)
 					if ( !( indentWholeList &&
-						( self.name == 'indent2' || self.useIndentClasses || parseInt( nearestListBlock.getStyle( getIndentCssProperty( nearestListBlock ) ), 10 ) ) &&
+						( self.name == 'indentright' || self.useIndentClasses || parseInt( nearestListBlock.getStyle( getIndentCssProperty( nearestListBlock ) ), 10 ) ) &&
 							indentElement( nearestListBlock, !hasMultipleItems && firstListItem.getDirection() ) ) )
 								indentList( nearestListBlock );
 				}
@@ -355,27 +355,27 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		}
 	};
 
-	CKEDITOR.plugins.add( 'indent2',
+	CKEDITOR.plugins.add( 'indent-right',
 	{
     lang: ['en'],
 		init : function( editor )
 		{
 			// Register commands.
-			var indent2 = editor.addCommand( 'indent2', new indentCommand( editor, 'indent2' ) ),
-				outdent2 = editor.addCommand( 'outdent2', new indentCommand( editor, 'outdent2' ) );
+			var indent2 = editor.addCommand( 'indentRight', new indentCommand( editor, 'indentRight' ) ),
+				outdent2 = editor.addCommand( 'outdentRight', new indentCommand( editor, 'outdentRight' ) );
 
 			// Register the toolbar buttons.
-			editor.ui.addButton( 'Indent2',
+			editor.ui.addButton( 'IndentRight',
 				{
 					label : 'Increase right margin',
-					command : 'indent2',
-					icon: CKEDITOR.plugins.getPath('indent2') + 'icons/arrow-up.png'
+					command : 'indentRight',
+					icon: CKEDITOR.plugins.getPath('indent-right') + 'icons/arrow-up.png'
 				});
-			editor.ui.addButton( 'Outdent2',
+			editor.ui.addButton( 'OutdentRight',
 				{
 					label : 'Decrease right margin',
-					command : 'outdent2',
-					icon: CKEDITOR.plugins.getPath('indent2') + 'icons/arrow-down.png'
+					command : 'outdentRight',
+					icon: CKEDITOR.plugins.getPath('indent-right') + 'icons/arrow-down.png'
 				});
 
       // add new buttons next to the original Indent & Outdent
