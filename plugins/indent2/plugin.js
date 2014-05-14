@@ -383,8 +383,8 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 
 			// Register the state changing handlers.
-			editor.on( 'selectionChange', CKEDITOR.tools.bind( onSelectionChange, indent2 ) );
-			editor.on( 'selectionChange', CKEDITOR.tools.bind( onSelectionChange, outdent2 ) );
+			//editor.on( 'selectionChange', CKEDITOR.tools.bind( onSelectionChange, indent2 ) );
+			//editor.on( 'selectionChange', CKEDITOR.tools.bind( onSelectionChange, outdent2 ) );
 
 			// [IE6/7] Raw lists are using margin instead of padding for visual indentation in wysiwyg mode. (#3893)
 			if ( CKEDITOR.env.ie6Compat || CKEDITOR.env.ie7Compat )
