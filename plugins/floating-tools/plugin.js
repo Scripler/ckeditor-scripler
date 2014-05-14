@@ -41,19 +41,6 @@
 				var labelId = CKEDITOR.tools.getNextId();
 
 				var output = [
-					// Did not find a nicer way to include the CSS required for the toolbar...
-					'<style>',
-					'.pos-relative {position:relative}',
-					'.cke_floatingtools{',
-						'position:absolute;',
-						'z-index:1;',
-						'left:-343px;',
-						'top:100px;',
-						'width:259px;',
-						'padding: 5px 0 0 6px;',
-						'border:1px solid #b1b1b1;',
-					'}',
-					'</style>',
 					'<span id="', labelId, '" class="cke_voice_label">', editor.lang.toolbar.toolbars, '</span>',
 					'<span id="' + editor.ui.spaceId( 'floatingtools' ) + '" class="cke_floatingtools cke_top" role="group" aria-labelledby="', labelId, '" onmousedown="return false;">' ];
 
@@ -205,27 +192,11 @@
 			 */
 			editor.addCommand( 'showFloatingTools', {
 				exec : function( editor ) {
-					if (is_text_selected()) {
-						toolbar = get_element();
-						unfocus_toolbar();
-						toolbar.show();
-
-						// Get the size of the toolbar
-						size = get_toolbar_size()
-						// Get the offset of the editor
-						offset = get_editor_offset();
-						// Get the mouse position
-						pos = get_mousepos();
-
-						// Calculate the position for the toolbar
-						toolpos = calculate_position(pos, size, offset);
-
-						toolbar.setStyles({
-							'left' : toolpos.x + 'px',
-							'top' : toolpos.y + 'px'
-						});
-						editor.floatingtools.is_visible = true;
-					}
+					toolbar = get_element();
+					toolbar.setStyles( {
+						'bottom': 23 + 'px'
+					});
+					editor.floatingtools.is_visible = true;
 				}
 			});
 
@@ -248,7 +219,9 @@
 			hide_toolbar = function() {
 				if (false != editor.floatingtools.is_visible) {
 					toolbar = get_element();
-					toolbar.hide();
+					toolbar.setStyles( {
+						'bottom' : -180 + 'px'
+					});
 					editor.floatingtools.is_visible = false;
 				}
 			}
