@@ -380,37 +380,52 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				{
 					label : 'Increase top margin',
 					command : 'indentTop',
-					icon: CKEDITOR.plugins.getPath('indent-top') + 'icons/arrow-up.png'
+					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/arrow-up.png'
+				});
+			editor.ui.addButton( 'IndentTopIcon',
+				{
+					label : 'Increase top margin',
+					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/indent.png'
 				});
 			editor.ui.addButton( 'OutdentTop',
 				{
 					label : 'Decrease top margin',
 					command : 'outdentTop',
-					icon: CKEDITOR.plugins.getPath('indent-top') + 'icons/arrow-down.png'
+					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/arrow-down.png'
 				});
 			editor.ui.addButton( 'IndentBottom',
 				{
 					label : 'Increase bottom margin',
 					command : 'indentBottom',
-					icon: CKEDITOR.plugins.getPath('indent-top') + 'icons/arrow-up.png'
+					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/arrow-up.png'
+				});
+			editor.ui.addButton( 'IndentBottomIcon',
+				{
+					label : 'Increase bottom margin',
+					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/indent.png'
 				});
 			editor.ui.addButton( 'OutdentBottom',
 				{
 					label : 'Decrease bottom margin',
 					command : 'outdentBottom',
-					icon: CKEDITOR.plugins.getPath('indent-top') + 'icons/arrow-down.png'
+					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/arrow-down.png'
 				});
 			editor.ui.addButton( 'IndentText',
 				{
 					label : 'Increase text indent',
 					command : 'indentText',
-					icon: CKEDITOR.plugins.getPath('indent-top') + 'icons/arrow-up.png'
+					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/arrow-up.png'
+				});
+			editor.ui.addButton( 'IndentTextIcon',
+				{
+					label : 'Increase text indent',
+					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/indent.png'
 				});
 			editor.ui.addButton( 'OutdentText',
 				{
 					label : 'Decrease text indent',
 					command : 'outdentText',
-					icon: CKEDITOR.plugins.getPath('indent-top') + 'icons/arrow-down.png'
+					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/arrow-down.png'
 				});
 
       // add new buttons next to the original Indent & Outdent
