@@ -187,7 +187,7 @@ Special outer level classes used in this file:
 	width: 113px !important;
 }
 .cke_button__indent, .cke_button__outdent,
-.cke_button__indent2, .cke_button__outdent2,
+.cke_button__indentright, .cke_button__outdentright,
 .cke_button__indenttop, .cke_button__outdenttop,
 .cke_button__indentbottom,.cke_button__outdentbottom,
 .cke_button__indenttext, .cke_button__outdenttext {
@@ -196,7 +196,7 @@ Special outer level classes used in this file:
 	padding: 0 !important;
 }
 .cke_button__indent_icon, .cke_button__outdent_icon,
-.cke_button__indent2_icon, .cke_button__outdent2_icon,
+.cke_button__indentright_icon, .cke_button__outdentright_icon,
 .cke_button__indenttop_icon, .cke_button__outdenttop_icon,
 .cke_button__indentbottom_icon,.cke_button__outdentbottom_icon,
 .cke_button__indenttext_icon, .cke_button__outdenttext_icon {
