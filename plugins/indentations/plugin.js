@@ -363,7 +363,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		}
 	};
 
-	CKEDITOR.plugins.add( 'indent-top',
+	CKEDITOR.plugins.add( 'indentations',
 	{
 		init : function( editor )
 		{
