@@ -414,7 +414,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				{
 					label : 'Increase text indent',
 					command : 'indentText',
-					icon: CKEDITOR.plugins.getPath('inindentations') + 'icons/arrow-up.png'
+					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/arrow-up.png'
 				});
 			editor.ui.addButton( 'IndentTextIcon',
 				{
