@@ -154,15 +154,14 @@ CKEDITOR.plugins.add( 'scripler', {
 			//alert("Pasted 2");
             //var innerDocument = editor.$.document;
 
-            var checkPasteDone = setInterval(function(){
+            /*var checkPasteDone = setInterval(function(){
                 //alert('Readystate: ' + CKEDITOR.instances.editor1.window.$.document.readyState);
 				var readyState = CKEDITOR.instances[instanceName].window.$.document.readyState;
-				console.log(readyState);
+				//console.log(readyState);
                 if (!/in/.test(readyState) || readyState=="interactive") {
-					document.getElementById('mask').style.display = 'none';
 					clearInterval(checkPasteDone);
 				}
-            },100);
+            },100);*/
             //setInterval(function(){alert('Readystate: ' + CKEDITOR.instances.editor1.window.$.document.readyState);},5000);
 		});
 
