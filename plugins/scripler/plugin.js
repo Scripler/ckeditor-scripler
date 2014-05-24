@@ -56,6 +56,7 @@ CKEDITOR.plugins.add( 'scripler', {
 		var timerFadeIn;
 		var timerFadeOut;
 		var timerChangeTimeout;
+		var instanceName = 'bodyeditor';
 
 		function showToolbar() {
             fadeIn(toolbarObj);
@@ -155,7 +156,7 @@ CKEDITOR.plugins.add( 'scripler', {
 
             var checkPasteDone = setInterval(function(){
                 //alert('Readystate: ' + CKEDITOR.instances.editor1.window.$.document.readyState);
-				var readyState = CKEDITOR.instances.editor1.window.$.document.readyState;
+				var readyState = CKEDITOR.instances[instanceName].window.$.document.readyState;
 				console.log(readyState);
                 if (!/in/.test(readyState) || readyState=="interactive") {
 					document.getElementById('mask').style.display = 'none';
@@ -176,8 +177,6 @@ CKEDITOR.plugins.add( 'scripler', {
         editor.on('blur', function () {inFocus = false; hideToolbar(true);});
         editor.on('instanceReady', function (event){
 			//console.log(JSON.stringify(CKEDITOR.instances.editor1.window.$.document.getElementsByTagName("body")[0]));
-
-			var instanceName = 'bodyeditor';
 
 			var editableBody = CKEDITOR.instances[instanceName].window.$.document.getElementsByTagName("body")[0]
 			//editableBody.addEventListener ("paste", onPaste, false);
