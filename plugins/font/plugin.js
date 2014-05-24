@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @license Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
@@ -38,11 +38,11 @@
 			allowedContent: style,
 			requiredContent: style,
 
-			panel: {
+			/*panel: {
 				css: [ CKEDITOR.skin.getPath( 'editor' ) ].concat( config.contentsCss ),
 				multiSelect: false,
 				attributes: { 'aria-label': lang.panelTitle }
-			},
+			},*/
 
 			init: function() {
 				this.startGroup( lang.panelTitle );

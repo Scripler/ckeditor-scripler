@@ -180,10 +180,10 @@ Special outer level classes used in this file:
 .cke_combopanel__fontsize {
 	width: 120px !important;
 }
-.cke_combo__line-height .cke_combo_text {
+.cke_combo__lineHeight .cke_combo_text {
 	width: 92px !important;
 }
-.cke_combopanel__line-height {
+.cke_combopanel__lineHeight {
 	width: 113px !important;
 }
 .cke_button__indent, .cke_button__outdent,
