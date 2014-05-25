@@ -51,7 +51,7 @@ Special outer level classes used in this file:
   /* This is <span>, so transform it into a block.*/
   display: block;
   padding: 0;
-  border: 3px solid #f3f3f3;
+  border: 3px solid #D6D6D6;
 }
 
 /* The inner boundary of the interface. */
@@ -92,8 +92,8 @@ Special outer level classes used in this file:
 
 .cke_top
 {
-  padding: 6px 8px 2px;
-  background: #f3f3f3;
+  padding: 0 8px 2px;
+  background: #D6D6D6;
 }
 
 .cke_float .cke_top
@@ -106,6 +106,7 @@ Special outer level classes used in this file:
   height: 15px;
   position: relative;
   background: transparent;
+  display: none; /*hide tags*/
 }
 
 /* The resizer is the small UI element that is rendered at the bottom right
@@ -165,4 +166,45 @@ Special outer level classes used in this file:
   overflow: auto;
   padding: 0 8px;
   outline-style: none;
+}
+
+.cke_combo__font .cke_combo_text {
+	width: 220px !important;
+}
+.cke_combopanel__font {
+	width: 240px !important;
+}
+.cke_combo__fontsize .cke_combo_text {
+	width: 100px !important;
+}
+.cke_combopanel__fontsize {
+	width: 120px !important;
+}
+.cke_combo__lineHeight .cke_combo_text {
+	width: 92px !important;
+}
+.cke_combopanel__lineHeight {
+	width: 113px !important;
+}
+.cke_button__indent, .cke_button__outdent,
+.cke_button__indentright, .cke_button__outdentright,
+.cke_button__indenttop, .cke_button__outdenttop,
+.cke_button__indentbottom,.cke_button__outdentbottom,
+.cke_button__indenttext, .cke_button__outdenttext {
+	height: 14px;
+	width: 28px;
+	padding: 0 !important;
+}
+.cke_button__indent_icon, .cke_button__outdent_icon,
+.cke_button__indentright_icon, .cke_button__outdentright_icon,
+.cke_button__indenttop_icon, .cke_button__outdenttop_icon,
+.cke_button__indentbottom_icon,.cke_button__outdentbottom_icon,
+.cke_button__indenttext_icon, .cke_button__outdenttext_icon {
+	background-size: 14px !important;
+	margin-left: 6px;
+}
+.cke_toolbar_break_arrows {
+	display: block;
+	clear: left;
+	padding-top: 1px;
 }
