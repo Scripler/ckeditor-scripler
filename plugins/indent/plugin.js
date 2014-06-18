@@ -34,6 +34,12 @@
 					icon: CKEDITOR.plugins.getPath('indent') + 'icons/arrow-up.png'
 				} );
 
+				editor.ui.addButton( 'IndentLeftIcon',
+				{
+					label : 'Increase right margin',
+					icon: CKEDITOR.plugins.getPath('indent') + 'icons/margin-left.png'
+				});
+
 				editor.ui.addButton( 'Outdent', {
 					label: 'Decrease margin left',
 					command: 'outdent',

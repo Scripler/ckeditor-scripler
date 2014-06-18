@@ -371,6 +371,11 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 					command : 'indentRight',
 					icon: CKEDITOR.plugins.getPath('indent-right') + 'icons/arrow-up.png'
 				});
+			editor.ui.addButton( 'IndentRightIcon',
+				{
+					label : 'Increase right margin',
+					icon: CKEDITOR.plugins.getPath('indent-right') + 'icons/margin-right.png'
+				});
 			editor.ui.addButton( 'OutdentRight',
 				{
 					label : 'Decrease right margin',
