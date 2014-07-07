@@ -40,10 +40,10 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 }
 
 /* "Font Size" panel size */
-.cke_combopanel__fontsize
+/*.cke_combopanel__fontsize
 {
   height: 170px;
-}
+}*/
 
 /* Editable regions */
 .cke_source

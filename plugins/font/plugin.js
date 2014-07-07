@@ -38,11 +38,11 @@
 			allowedContent: style,
 			requiredContent: style,
 
-			/*panel: {
+			panel: {
 				css: [ CKEDITOR.skin.getPath( 'editor' ) ].concat( config.contentsCss ),
 				multiSelect: false,
 				attributes: { 'aria-label': lang.panelTitle }
-			},*/
+			},
 
 			init: function() {
 				this.startGroup( lang.panelTitle );
