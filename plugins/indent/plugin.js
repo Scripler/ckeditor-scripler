@@ -36,7 +36,7 @@
 
 				editor.ui.addButton( 'IndentLeftIcon',
 				{
-					label : 'Increase right margin',
+					label : 'Margin left',
 					icon: CKEDITOR.plugins.getPath('indent') + 'icons/margin-left.png'
 				});
 

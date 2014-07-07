@@ -384,7 +384,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				});
 			editor.ui.addButton( 'IndentTopIcon',
 				{
-					label : 'Increase top margin',
+					label : 'Top margin',
 					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/margin-top.png'
 				});
 			editor.ui.addButton( 'OutdentTop',
@@ -401,7 +401,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				});
 			editor.ui.addButton( 'IndentBottomIcon',
 				{
-					label : 'Increase bottom margin',
+					label : 'Bottom margin',
 					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/margin-bottom.png'
 				});
 			editor.ui.addButton( 'OutdentBottom',
@@ -418,7 +418,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				});
 			editor.ui.addButton( 'IndentTextIcon',
 				{
-					label : 'Increase text indent',
+					label : 'Text indent',
 					icon: CKEDITOR.plugins.getPath('indentations') + 'icons/indent.png'
 				});
 			editor.ui.addButton( 'OutdentText',
