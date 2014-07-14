@@ -51,7 +51,14 @@
 					var name = names[ i ];
 
 					// Add the tag entry to the panel list.
-					this.add( name, styles[ name ].buildPreview(), name );
+					if ( typeof styles[ name ]._.definition.styles['font-size'] !== 'undefined' ) {
+						var html = styles[ name ].buildPreview();
+						var newHtml = html.replace(/(<[^>]+) style=".*?"/i, "$1");
+						this.add( name, newHtml, name );
+					} else {
+						this.add( name, styles[ name ].buildPreview(), name );
+					}
+					
 				}
 			},
 
@@ -194,7 +201,7 @@ CKEDITOR.config.font_style = {
  * @cfg {String} [fontSize_sizes=see source]
  * @member CKEDITOR.config
  */
-CKEDITOR.config.fontSize_sizes = '8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;16/16px;18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px';
+CKEDITOR.config.fontSize_sizes = '1em;1.1em;1.2em;1.3em;1.4em;1.5em;1.6em;1.7em;1.8em;1.9em;2em;2.1em;2.2em;2.3em;2.4em;2.5em;2.6em;2.7em;2.8em;2.9em;3em;3.1em;3.2em;3.3em;3.4em;3.5em;3.6em;3.7em;3.8em;3.9em;4em;4.1em;4.2em;4.3em;4.4em;4.5em;4.6em;4.7em;4.8em;4.9em;5em;';
 
 /**
  * The text to be displayed in the Font Size combo is none of the available
