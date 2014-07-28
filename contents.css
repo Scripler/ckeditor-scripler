@@ -147,4 +147,5 @@ a > img {
 img.cke_anchor {
 	display: inline;
 	margin: 0 !important;
+	padding: 0 !important;
 }
