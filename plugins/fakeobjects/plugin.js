@@ -133,6 +133,10 @@
 			title: label,
 			align: realElement.attributes.align || ''
 		};
+		
+		if ( realElement.attributes.id ) {
+			attributes.id = realElement.attributes.id;
+		}
 
 		// Do not set "src" on high-contrast so the alt text is displayed. (#8945)
 		if ( !CKEDITOR.env.hc )
