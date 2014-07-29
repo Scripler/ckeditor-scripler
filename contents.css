@@ -132,3 +132,20 @@ a > img {
 	border: none;
 	outline: 1px solid #0782C1;
 }
+
+.cke_panel_listItem  a:link, .cke_panel_listItem  a:visited{
+	text-decoration:none; 
+}
+
+.cke_panel_listItem  h1{
+	font-size: 2em; 
+}
+.cke_panel_listItem  h2{
+	font-size: 1.5em; 
+}
+
+img.cke_anchor {
+	display: inline;
+	margin: 0 !important;
+	padding: 0 !important;
+}
