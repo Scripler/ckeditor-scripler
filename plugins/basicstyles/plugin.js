@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @license Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
@@ -116,7 +116,7 @@ CKEDITOR.plugins.add( 'basicstyles', {
  * @cfg
  * @member CKEDITOR.config
  */
-CKEDITOR.config.coreStyles_bold = { element: 'strong', overrides: 'b' };
+CKEDITOR.config.coreStyles_bold = { element: 'strong', overrides: 'b', cssProperty: 'font-weight:bold' };
 
 /**
  * The style definition that applies the *italics* style to the text.
@@ -131,7 +131,7 @@ CKEDITOR.config.coreStyles_bold = { element: 'strong', overrides: 'b' };
  * @cfg
  * @member CKEDITOR.config
  */
-CKEDITOR.config.coreStyles_italic = { element: 'em', overrides: 'i' };
+CKEDITOR.config.coreStyles_italic = { element: 'em', overrides: 'i', cssProperty: 'font-style:italic' };
 
 /**
  * The style definition that applies the <u>underline</u> style to the text.
@@ -144,7 +144,7 @@ CKEDITOR.config.coreStyles_italic = { element: 'em', overrides: 'i' };
  * @cfg
  * @member CKEDITOR.config
  */
-CKEDITOR.config.coreStyles_underline = { element: 'u' };
+CKEDITOR.config.coreStyles_underline = { element: 'u', cssProperty: 'font-style:underline' };
 
 /**
  * The style definition that applies the <strike>strike-through</strike> style to the text.

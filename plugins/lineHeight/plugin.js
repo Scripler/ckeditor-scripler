@@ -85,6 +85,18 @@
 								if ( value != currentValue )
 									this.setValue( value );
 								return;
+							} else {
+								//compute EMs because computed style returns pixels,
+								//parent fontSize is used because line-height depends on parent font-size
+								var parentPx = parseInt(window.getComputedStyle(element.$.parentNode, null).fontSize, 10);
+								var px = parseInt(element.getComputedStyle('line-height'));
+								var pxInEms = (px / parentPx).toFixed(2);
+
+								if ( pxInEms === value ) {
+									if ( value != currentValue )
+										this.setValue( value );
+									return;
+								}
 							}
 						}
 					}

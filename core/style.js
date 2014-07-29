@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @license Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
@@ -168,6 +168,8 @@ CKEDITOR.STYLE_OBJECT = 3;
 				CKEDITOR.STYLE_INLINE
 			);
 
+		this.cssProperty = styleDefinition.cssProperty;
+
 		// If the 'element' property is an object with a set of possible element, it will be applied like an object style: only to existing elements
 		if ( typeof this.element == 'object' )
 			this.type = CKEDITOR.STYLE_OBJECT;
@@ -328,6 +330,17 @@ CKEDITOR.STYLE_OBJECT = 3;
 
 					for ( var i = 0, element; i < elements.length; i++ ) {
 						element = elements[ i ];
+
+						if ( this.cssProperty ) {
+							var split = this.cssProperty.split(':');
+							var style = split[0];
+							var value = split[1];
+
+							var computedValue = element.getComputedStyle( style );
+							if ( computedValue === value ) {
+								return true;
+							}
+						}
 
 						if ( this.type == CKEDITOR.STYLE_INLINE && ( element == elementPath.block || element == elementPath.blockLimit ) )
 							continue;
