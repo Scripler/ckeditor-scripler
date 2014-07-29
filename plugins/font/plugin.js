@@ -58,7 +58,7 @@
 					} else {
 						this.add( name, styles[ name ].buildPreview(), name );
 					}
-					
+
 				}
 			},
 
@@ -90,6 +90,24 @@
 								if ( value != currentValue )
 									this.setValue( value );
 								return;
+							} else {
+								var fontFamily = element.getComputedStyle('font-family');
+								var split = fontFamily.split(',')[0];
+								split = split.replace(/'/g, '');
+								split = split.replace(/"/g, '');
+								var match = value.replace(/-/g, ' ');
+
+								//compute EMs because computed style returns pixels
+								var parentPx = parseInt(window.getComputedStyle(element.$.parentNode, null).fontSize, 10);
+								var px = parseInt(element.getComputedStyle('font-size'));
+								var pxInEms = Math.floor((px / parentPx) * 10) / 10;
+								pxInEms = pxInEms + 'em';
+
+								if ( split === match || pxInEms === value ) {
+									if ( value != currentValue )
+										this.setValue( value );
+									return;
+								}
 							}
 						}
 					}
@@ -138,15 +156,12 @@
  * @cfg {String} [font_names=see source]
  * @member CKEDITOR.config
  */
-CKEDITOR.config.font_names = 'Arial/Arial, Helvetica, sans-serif;' +
-	'Comic Sans MS/Comic Sans MS, cursive;' +
-	'Courier New/Courier New, Courier, monospace;' +
-	'Georgia/Georgia, serif;' +
-	'Lucida Sans Unicode/Lucida Sans Unicode, Lucida Grande, sans-serif;' +
-	'Tahoma/Tahoma, Geneva, sans-serif;' +
-	'Times New Roman/Times New Roman, Times, serif;' +
-	'Trebuchet MS/Trebuchet MS, Helvetica, sans-serif;' +
-	'Verdana/Verdana, Geneva, sans-serif';
+CKEDITOR.config.font_names = 'Aleo;' + 'Arsenal;' + 'Autour One;' + 'Bob;' + 'Charis;' + 'Chunk;' + 'CMU Bright;' +
+	'CMU Concrete;' + 'CMU Sans Serif;' + 'CMU Serif;' + 'CMU Typewriter;' + 'Courier Prime;' + 'Crimson;' +
+	'Deja Vu Sans;' + 'Deja Vu Sans Condensed;' + 'Deja Vu Mono;' + 'Deja Vu Serif;' + 'Deja Vu Serif Condensed;' +
+	'Gabriela;' + 'Junicode;' + 'Kelson;' + 'Kreon;' + 'League Gothic;' + 'Linux Biolinum;' + 'Merriweather;' +
+	'Nobile;' + 'Open Sans;' + 'Prime;' + 'Quicksand;' + 'Raleway;' + 'Rambla;' + 'Roboto;' + 'Roboto Condensed' +
+	'Signika;' + 'Source Code Pro;' + 'Source Sans Pro;' + 'Ubuntu;' + 'Ubuntu Mono;' + 'Vidaloka;' + 'Voltaire;';
 
 /**
  * The text to be displayed in the Font combo is none of the available values
