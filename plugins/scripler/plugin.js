@@ -140,7 +140,7 @@ CKEDITOR.plugins.add( 'scripler', {
 				element.style.filter = 'alpha(opacity=' + op * 100 + ')';
 				element.style.display = 'block';
 			}
-			resetChangeTimeout();
+			//resetChangeTimeout();
 		}
 
         editor.on('paste', function (ev) {
@@ -173,7 +173,7 @@ CKEDITOR.plugins.add( 'scripler', {
 
         // Hide/show toolbar
         editor.on('focus', function () {inFocus = true; showToolbar();});
-        editor.on('blur', function () {inFocus = false; hideToolbar(true);});
+        //editor.on('blur', function () {inFocus = false; hideToolbar(true);});
         editor.on('instanceReady', function (event){
 			//console.log(JSON.stringify(CKEDITOR.instances.editor1.window.$.document.getElementsByTagName("body")[0]));
 
@@ -181,28 +181,30 @@ CKEDITOR.plugins.add( 'scripler', {
 			//editableBody.addEventListener ("paste", onPaste, false);
 			//editableBody.addEventListener ("beforepaste", onPaste, false);
 
-			var editorDocument = CKEDITOR.instances[instanceName].window.$.document;
+			//var editorDocument = CKEDITOR.instances[instanceName].window.$.document;
 			var editorId = editor.id;
 			toolbarObj = document.getElementById( editorId+'_toolbox' );
 			editorObj = document.getElementById( editorId+'_contents' );
 			toolbarArea = document.getElementById( 'toolbar-area' );
-            toolbarObj.style.position = 'absolute';
-            toolbarObj.style.margin = '-1.5em 5em';
-            toolbarObj.style.display = 'none';
-			toolbarObj.style.width = '660px';
-			toolbarObj.style.height = '35px';
+			//toolbarObj.style.position = 'absolute';
+            toolbarObj.style.margin = '0em 5em';
+            //toolbarObj.style.display = 'none';
+			//toolbarObj.style.width = '660px';
+			//toolbarObj.style.height = '35px';
 			toolbarObj.style.background = '#D6D6D6';
 			toolbarObj.style.padding = '3px 0 0 7px';
-			toolbarObj.onmousemove = showToolbar;
-			toolbarArea.onmousemove = showToolbar;
-			editorObj.onmouseover = showToolbar;
-			toolbarObj.onmouseout = function () {hideToolbar(false) };
-			toolbarArea.onmouseout = function () {hideToolbar(false) };
-			editorObj.onmouseout = function () {hideToolbar(false) };
-			editableBody.onblur = function () {inFocus = false; hideToolbar(true);};
-			editableBody.onfocus = function () {inFocus = true; showToolbar();};
-			toolbarObj.onmouseover = showToolbar;
-			editorDocument.onmousemove = showToolbar;
+
+			//toolbarObj.onmousemove = showToolbar;
+			//toolbarArea.onmousemove = showToolbar;
+			//editorObj.onmouseover = showToolbar;
+			//toolbarObj.onmouseout = function () {hideToolbar(false) };
+			//toolbarArea.onmouseout = function () {hideToolbar(false) };
+			//editorObj.onmouseout = function () {hideToolbar(false) };
+			//editableBody.onblur = function () {inFocus = false; hideToolbar(true);};
+			//editableBody.onfocus = function () {inFocus = true; showToolbar();};
+			//toolbarObj.onmouseover = showToolbar;
+			//editorDocument.onmousemove = showToolbar;
+			showToolbar();
         });
     }
 });
