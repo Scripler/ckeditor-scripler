@@ -187,9 +187,9 @@ CKEDITOR.plugins.add( 'scripler', {
 			editorObj = document.getElementById( editorId+'_contents' );
 			toolbarArea = document.getElementById( 'toolbar-area' );
 			//toolbarObj.style.position = 'absolute';
-            toolbarObj.style.margin = '0em 5em';
-            //toolbarObj.style.display = 'none';
-			toolbarObj.style.width = '700px'; // TODO: decrease to 660px when removing the "Source" toolbar button
+			toolbarObj.style.margin = '0em 10em';
+			//toolbarObj.style.display = 'none';
+			toolbarObj.style.width = '517px'; // TODO: decrease when removing the "Source" toolbar button
 			//toolbarObj.style.height = '35px';
 			toolbarObj.style.background = '#D6D6D6';
 			toolbarObj.style.padding = '3px 0 0 7px';
