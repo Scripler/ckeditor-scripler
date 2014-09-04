@@ -8,7 +8,7 @@ CKEDITOR.plugins.add('imageScripler',
             {
                 label: 'Image Scripler',
                 command: 'OpenImageTab',
-                icon: CKEDITOR.plugins.getPath('imageScripler') + 'icons/image.png'
+                icon: CKEDITOR.skin.path() + 'icons/image.png'
             });
         var cmd = editor.addCommand('OpenImageTab', { exec: openImageTab });
     }

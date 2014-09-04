@@ -8,7 +8,7 @@ CKEDITOR.plugins.add('linkScripler',
             {
                 label: 'Link Scripler',
                 command: 'OpenlinkTab',
-                icon: CKEDITOR.plugins.getPath('linkScripler') + 'icons/link.png'
+                icon: CKEDITOR.skin.path() + 'icons/link.png'
             });
         var cmd = editor.addCommand('OpenlinkTab', { exec: openLinkTab });
     }
