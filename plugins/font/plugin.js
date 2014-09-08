@@ -97,13 +97,23 @@
 								split = split.replace(/"/g, '');
 								var match = value.replace(/-/g, ' ');
 
-								//compute EMs because computed style returns pixels
-								var parentPx = parseInt(window.getComputedStyle(element.$.parentNode, null).fontSize, 10);
-								var px = parseInt(element.getComputedStyle('font-size'));
-								var pxInEms = Math.floor((px / parentPx) * 10) / 10;
-								pxInEms = pxInEms + 'em';
+								var ems = null;
+								if ( element.$.nodeName === 'SPAN' ) {
+									ems = element.$.style.fontSize;
+								} else if ( !element.$.className && !element.$.style.fontSize ) {
+									var scope = parent.angular.element(bodyeditor).scope();
+									if ( typeof scope.selectedStyle.css !== 'undefined' ) {
+										ems = scope.selectedStyle.css['font-size'];
+									}
+								} else {
+									//compute EMs because computed style returns pixels
+									var parentPx = parseInt(window.getComputedStyle(element.$.parentNode, null).fontSize, 10);
+									var px = parseInt(element.getComputedStyle('font-size'));
+									var pxInEms = Math.floor((px / parentPx) * 10) / 10;
+									ems = pxInEms + 'em';
+								}
 
-								if ( split === match || pxInEms === value ) {
+								if ( split === match || ems === value ) {
 									if ( value != currentValue )
 										this.setValue( value );
 									return;

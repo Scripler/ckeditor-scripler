@@ -141,7 +141,7 @@ CKEDITOR.plugins.add( 'format', {
  * @cfg {String} [format_tags='p;h1;h2;h3;h4;h5;h6;pre;address;div']
  * @member CKEDITOR.config
  */
-CKEDITOR.config.format_tags = 'p;h1;h2;h3;h4;h5;h6;pre;address;div';
+CKEDITOR.config.format_tags = 'p;h1;h2;h3;h4;h5;h6';
 
 /**
  * The style definition to be used to apply the `'Normal'` format.

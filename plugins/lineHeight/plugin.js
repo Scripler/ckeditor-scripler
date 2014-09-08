@@ -89,12 +89,35 @@
 								//compute EMs because computed style returns pixels,
 								//parent fontSize is used because line-height depends on parent font-size
 								var parentPx = parseInt(window.getComputedStyle(element.$.parentNode, null).fontSize, 10);
-								var px = parseInt(element.getComputedStyle('line-height'));
-								var pxInEms = (px / parentPx).toFixed(2);
 
-								if ( pxInEms === value ) {
-									if ( value != currentValue )
+								var heightValue = null;
+								var px = 0;
+								if ( element.$.nodeName === 'SPAN' ) {
+									var parents = element.getParents();
+									for ( var p = 0; p < parents.length; p++ ) {
+										if ( parents[p].$.nodeName === 'BODY' ) {
+											var element = parents[p+1];
+
+											if ( element.$.style.lineHeight ) {
+												heightValue = element.$.style.lineHeight;
+												this.setValue( heightValue );
+												return;
+											} else {
+												px = parseInt(element.getComputedStyle('line-height'));
+											}
+
+											break;
+										}
+									}
+								} else {
+									px = parseInt(element.getComputedStyle('line-height'));
+									heightValue = (px / parentPx).toFixed(2);
+								}
+
+								if ( heightValue === value ) {
+									if ( value != currentValue ) {
 										this.setValue( value );
+									}
 									return;
 								}
 							}

@@ -13,6 +13,6 @@ CKEDITOR.plugins.setLang( 'format', 'en', {
 	tag_h4: 'Heading 4',
 	tag_h5: 'Heading 5',
 	tag_h6: 'Heading 6',
-	tag_p: 'Normal',
+	tag_p: 'Paragraph',
 	tag_pre: 'Formatted'
 } );
