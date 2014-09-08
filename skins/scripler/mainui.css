@@ -168,8 +168,11 @@ Special outer level classes used in this file:
   outline-style: none;
 }
 
-.cke_combopanel__styles {
-	width: 160px !important;
+.cke_combo__format .cke_combo_text {
+	width: 220px !important;
+}
+.cke_combopanel__format {
+	width: 240px !important;
 }
 .cke_combo__font .cke_combo_text {
 	width: 220px !important;
