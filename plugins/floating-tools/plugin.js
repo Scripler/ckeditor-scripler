@@ -194,7 +194,7 @@
 				exec : function( editor ) {
 					toolbar = get_element();
 					toolbar.setStyles( {
-						'bottom': 30 + 'px'
+						'bottom': 28 + 'px'
 					});
 					editor.floatingtools.is_visible = true;
 				}
