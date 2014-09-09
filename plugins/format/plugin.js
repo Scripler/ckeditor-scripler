@@ -11,7 +11,7 @@ CKEDITOR.plugins.add( 'format', {
 			return;
 
 		var config = editor.config,
-			lang = 'en';
+			lang = editor.lang.format;
 
 		// Gets the list of tags from the settings.
 		var tags = config.format_tags.split( ';' );
