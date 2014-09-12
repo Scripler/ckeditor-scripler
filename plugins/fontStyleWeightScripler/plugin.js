@@ -29,8 +29,9 @@
 
 				styles[ name ] = new CKEDITOR.style( styleDefinition, vars );
 				styles[ name ]._.definition.name = name;
-			} else
+			} else {
 				names.splice( i--, 1 );
+			}
 		}
 
 		editor.ui.addRichCombo( comboName, {
@@ -77,6 +78,11 @@
 					// For each element into the elements path.
 					for ( var i = 0, element; i < elements.length; i++ ) {
 						element = elements[ i ];
+						
+						var fontWeight = element.getComputedStyle('font-weight');
+						var fontStyle = element.getComputedStyle('font-style');
+						var isNormalWeight = false;
+						var isNormalStyle = false;
 
 						// Check if the element is removable by any of
 						// the styles.
@@ -85,7 +91,39 @@
 								if ( value != currentValue )
 									this.setValue( value );
 								return;
+							} else {
+								var combined = fontWeight + ' ' + fontStyle;
+								
+								if ( combined === value ) {
+									if ( value != currentValue ) {
+										this.setValue( value ); 
+									}
+									return;
+								} 
+								else if ( fontWeight === value ) {
+									if ( fontWeight === 'normal' ) {
+										isNormalWeight = true;
+									}
+								} else if ( fontStyle === value ) {
+									if ( fontStyle === 'normal' ) {
+										isNormalStyle = true;
+									}
+								}
 							}
+						}
+
+						if ( isNormalWeight && !isNormalStyle ) {
+							if ( fontStyle != currentValue ) {
+								this.setValue( fontStyle ); 
+							} 
+							return;
+						}
+
+						if ( isNormalStyle && !isNormalWeight ) {
+							if ( fontWeight != currentValue ) {
+								this.setValue( fontWeight ); 
+							} 
+									return;
 						}
 					}
 
