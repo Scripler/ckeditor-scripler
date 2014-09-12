@@ -72,6 +72,7 @@
 
 				var scope = parent.angular.element(bodyeditor).scope();
 				scope.fontSelected = value;
+				this.setStyle( 'font-family', style._.definition.styles['font-family'] );
 				editor.fire( 'saveSnapshot' );
 			},
 
@@ -90,8 +91,10 @@
 						// the styles.
 						for ( var value in styles ) {
 							if ( styles[ value ].checkElementMatch( element, true, editor ) ) {
-								if ( value != currentValue )
+								if ( value != currentValue ) {
 									this.setValue( value );
+									this.setStyle( 'font-family', styles[ value ]._.definition.styles['font-family'] );
+								}
 								return;
 							} else {
 								var scope = parent.angular.element(bodyeditor).scope();
@@ -124,8 +127,10 @@
 								}
 
 								if ( split === match || ems === value ) {
-									if ( value != currentValue )
+									if ( value != currentValue ) {
 										this.setValue( value );
+										this.setStyle( 'font-family', styles[ value ]._.definition.styles['font-family'] );
+									}
 									return;
 								}
 							}

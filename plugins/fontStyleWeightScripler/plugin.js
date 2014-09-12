@@ -64,6 +64,8 @@
 				var style = styles[ value ];
 
 				editor[ this.getValue() == value ? 'removeStyle' : 'applyStyle' ]( style );
+				this.setStyle( 'font-weight', style._.definition.styles['font-weight'] );
+				this.setStyle( 'font-style', style._.definition.styles['font-style'] );
 				editor.fire( 'saveSnapshot' );
 			},
 
@@ -82,13 +84,18 @@
 						var fontStyle = element.getComputedStyle('font-style');
 						var isNormalWeight = false;
 						var isNormalStyle = false;
+						var fontWeightValue = null;
+						var fontStyleValue = null;
 
 						// Check if the element is removable by any of
 						// the styles.
 						for ( var value in styles ) {
 							if ( styles[ value ].checkElementMatch( element, true, editor ) ) {
-								if ( value != currentValue )
+								if ( value != currentValue ) {
 									this.setValue( value );
+									this.setStyle( 'font-weight', styles[ value ]._.definition.styles['font-weight'] );
+									this.setStyle( 'font-style', styles[ value ]._.definition.styles['font-style'] );
+								}
 								return;
 							} else {
 								var combined = fontWeight + ' ' + fontStyle;
@@ -96,10 +103,13 @@
 								if ( combined === value ) {
 									if ( value != currentValue ) {
 										this.setValue( value ); 
+										this.setStyle( 'font-weight', styles[ value ]._.definition.styles['font-weight'] );
+										this.setStyle( 'font-style', styles[ value ]._.definition.styles['font-style'] );
 									}
 									return;
 								} 
 								else if ( fontWeight === value ) {
+									fontWeightValue = value;
 									if ( fontWeight === 'normal' ) {
 										isNormalWeight = true;
 									}
@@ -114,6 +124,8 @@
 						if ( isNormalWeight && !isNormalStyle ) {
 							if ( fontStyle != currentValue ) {
 								this.setValue( fontStyle ); 
+								this.setStyle( 'font-weight', styles[ fontStyle ]._.definition.styles['font-weight'] );
+								this.setStyle( 'font-style', styles[ fontStyle ]._.definition.styles['font-style'] );
 							} 
 							return;
 						}
@@ -121,8 +133,10 @@
 						if ( isNormalStyle && !isNormalWeight ) {
 							if ( fontWeight != currentValue ) {
 								this.setValue( fontWeight ); 
+								this.setStyle( 'font-weight', styles[ fontWeight ]._.definition.styles['font-weight'] );
+								this.setStyle( 'font-style', styles[ fontWeight ]._.definition.styles['font-style'] );
 							} 
-									return;
+							return;
 						}
 					}
 

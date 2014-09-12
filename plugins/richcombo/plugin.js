@@ -367,6 +367,11 @@ CKEDITOR.plugins.add( 'richcombo', {
 				this._.committed = 1;
 			},
 
+			setStyle: function( styleName, styleValue ) {
+				var el = this.document.getById( 'cke_' + this.id + '_text' );
+				el.setStyle( styleName, styleValue );
+			},
+
 			setState: function( state ) {
 				if ( this._.state == state )
 					return;
