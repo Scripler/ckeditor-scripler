@@ -7,6 +7,7 @@
 	function addCombo( editor, comboName, styleType, lang, entries, defaultLabel, styleDefinition, order ) {
 		var config = editor.config,
 			style = new CKEDITOR.style( styleDefinition );
+		var scope = parent.angular.element(bodyeditor).scope();
 
 		// Gets the list of fonts from the settings.
 		var names = entries.split( ';' ),
@@ -69,6 +70,8 @@
 				var style = styles[ value ];
 
 				editor[ this.getValue() == value ? 'removeStyle' : 'applyStyle' ]( style );
+
+				scope.fontSelected = value;
 				editor.fire( 'saveSnapshot' );
 			},
 
@@ -96,6 +99,12 @@
 								split = split.replace(/'/g, '');
 								split = split.replace(/"/g, '');
 								var match = value.replace(/-/g, ' ');
+
+								if ( split === match ) {
+									if ( typeof value !== 'undefined' ) {									
+										scope.fontSelected = value;
+									}
+								}
 
 								var ems = null;
 								if ( element.$.nodeName === 'SPAN' ) {
