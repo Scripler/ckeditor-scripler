@@ -7,7 +7,6 @@
 	function addCombo( editor, comboName, styleType, lang, entries, defaultLabel, styleDefinition, order ) {
 		var config = editor.config,
 			style = new CKEDITOR.style( styleDefinition );
-		var scope = parent.angular.element(bodyeditor).scope();
 
 		// Gets the list from settings
 		var names = entries.split( ';' ),
@@ -140,6 +139,7 @@
 				//if fontSelected is undefined it will just show all options
 				//this happens when editor is first loaded 
 				//font is not set until cursor is set by user or user selects a font from font dropdown
+				var scope = parent.angular.element(bodyeditor).scope();
 				if ( typeof scope.fontSelected !== 'undefined' ) {
 					for ( var p = 0; p < enabledStyles.length; p++ ) {
 					
