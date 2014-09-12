@@ -101,8 +101,10 @@
 								var match = value.replace(/-/g, ' ');
 
 								if ( split === match ) {
-									if ( typeof value !== 'undefined' ) {									
-										scope.fontSelected = value;
+									if ( typeof value !== 'undefined' ) {
+										if ( typeof scope !== 'undefined' ) {
+											scope.fontSelected = value;
+										}
 									}
 								}
 
