@@ -226,6 +226,7 @@ CKEDITOR.config.entities_greek = true;
  * @cfg {Boolean/String} [entities_processNumerical=false]
  * @member CKEDITOR.config
  */
+CKEDITOR.config.entities_processNumerical = 'force'; // Converts from '&nbsp;' into '&#160;';
 
 /**
  * A comma separated list of  additional entities to be used. Entity names
