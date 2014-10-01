@@ -26,8 +26,8 @@
 				vars[ styleType ] = values[ i ] = parts[ 1 ] || name;
 				vars[ 'style' ] = parts[ 2 ];
 
-				styles[ name ] = new CKEDITOR.style( styleDefinition, vars );
-				styles[ name ]._.definition.name = name;
+				styles[ parts[ 1 ] ] = new CKEDITOR.style( styleDefinition, vars );
+				styles[ parts[ 1 ] ]._.definition.name = name;
 			} else {
 				names.splice( i--, 1 );
 			}
@@ -89,6 +89,7 @@
 
 						// Check if the element is removable by any of
 						// the styles.
+						//console.log('styles: ' + JSON.stringify(styles));
 						for ( var value in styles ) {
 							if ( styles[ value ].checkElementMatch( element, true, editor ) ) {
 								if ( value != currentValue ) {
@@ -124,7 +125,7 @@
 						if ( isNormalWeight && !isNormalStyle ) {
 							if ( fontStyle != currentValue ) {
 								this.setValue( fontStyle ); 
-								this.setStyle( 'font-weight', styles[ fontStyle ]._.definition.styles['font-weight'] );
+								this.setStyle( 'font-weight', styles[ fontStyle ]._.definition.styles['font-weight'] ); // TODO: should this be styles[ fontWeight ]...?
 								this.setStyle( 'font-style', styles[ fontStyle ]._.definition.styles['font-style'] );
 							} 
 							return;
@@ -134,7 +135,7 @@
 							if ( fontWeight != currentValue ) {
 								this.setValue( fontWeight ); 
 								this.setStyle( 'font-weight', styles[ fontWeight ]._.definition.styles['font-weight'] );
-								this.setStyle( 'font-style', styles[ fontWeight ]._.definition.styles['font-style'] );
+								this.setStyle( 'font-style', styles[ fontWeight ]._.definition.styles['font-style'] ); // TODO: should this be styles[ fontStyle ]...?
 							} 
 							return;
 						}
@@ -233,7 +234,7 @@ black/900/normal
 
 */
 
-CKEDITOR.config.fontStyleWeight_combinations = 'thin/100/normal;thin italic/100/italic;extra-light/200/normal;extra-light italic/200/italic;light/300/normal;light italic/300/italic;normal/400/normal;italic/400/italic;demi-bold/600/normal;demi-bold italic/600/italic;bold/700/normal;bold italic/700/italic;heavy/800/normal;heavy italic/800/italic;black/900/normal;black italic/900/italic';
+CKEDITOR.config.fontStyleWeight_combinations = 'thin/100/normal;thin italic/100/italic;extra-light/200/normal;extra-light italic/200/italic;light/300/normal;light italic/300/italic;normal/400/normal;italic/400/italic;demi-bold/600/normal;demi-bold italic/600/italic;bold/700/normal;bold italic/700/italic;heavy/800/normal;heavy italic/800/italic;black/900/normal;black italic/900/italic;';
 
 /* font allowed styles
 	array containing font names and an array of styles by displayed name 
@@ -279,15 +280,15 @@ CKEDITOR.config.fontStyleWeight_enabledStyles = [
 	{ fontName: 'Ubuntu', styles: ['light', 'light italic', 'normal', 'italic', 'demi-bold', 'demi-bold italic', 'bold', 'bold italic'] },
 	{ fontName: 'Ubuntu Mono', styles: ['normal', 'italic', 'bold', 'bold italic'] },
 	{ fontName: 'Vidaloka', styles: ['normal'] },
-	{ fontName: 'Voltaire', styles: ['normal'] },
+	{ fontName: 'Voltaire', styles: ['normal'] }
 ];
 
 CKEDITOR.config.fontStyleWeight_defaultLabel = '';
 
 CKEDITOR.config.fontStyleWeight_style = {
 	element: 'span',
-	styles: { 'font-weight': '#(weight)',
-		  'font-style': '#(style)' },
+	styles: { 	'font-weight': '#(weight)',
+		  	 	'font-style' : '#(style)' },
 	overrides: [ {
 		element: 'font', attributes: { 'weight': null, 'style': null }
 	} ]
