@@ -172,7 +172,7 @@ CKEDITOR.plugins.add( 'scripler', {
 		//}
 
         // Hide/show toolbar
-        editor.on('focus', function () {inFocus = true; showToolbar();});
+        //editor.on('focus', function () {inFocus = true; showToolbar();});
         //editor.on('blur', function () {inFocus = false; hideToolbar(true);});
         editor.on('instanceReady', function (event){
 			//console.log(JSON.stringify(CKEDITOR.instances.editor1.window.$.document.getElementsByTagName("body")[0]));
@@ -183,14 +183,13 @@ CKEDITOR.plugins.add( 'scripler', {
 
 			//var editorDocument = CKEDITOR.instances[instanceName].window.$.document;
 			var editorId = editor.id;
+			var editorTop = document.getElementById( editorId+'_top' );
 			toolbarObj = document.getElementById( editorId+'_toolbox' );
 			editorObj = document.getElementById( editorId+'_contents' );
-			toolbarArea = document.getElementById( 'toolbar-area' );
-			//toolbarObj.style.position = 'absolute';
-			toolbarObj.style.margin = '0em 10em';
-			//toolbarObj.style.display = 'none';
-			toolbarObj.style.width = '517px'; // TODO: decrease when removing the "Source" toolbar button
-			//toolbarObj.style.height = '35px';
+			//toolbarArea = document.getElementById( 'toolbar-area' );
+			editorTop.style.textAlign = 'center';
+
+			toolbarObj.style.display = 'inline-block';
 			toolbarObj.style.background = '#D6D6D6';
 			toolbarObj.style.padding = '3px 0 0 7px';
 
@@ -204,7 +203,7 @@ CKEDITOR.plugins.add( 'scripler', {
 			//editableBody.onfocus = function () {inFocus = true; showToolbar();};
 			//toolbarObj.onmouseover = showToolbar;
 			//editorDocument.onmousemove = showToolbar;
-			showToolbar();
+			//showToolbar();
         });
     }
 });
