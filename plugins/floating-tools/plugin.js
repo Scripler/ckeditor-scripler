@@ -17,15 +17,11 @@
 		this.mousepos = {x:0, y:0};
 	};
 
-
-
-
 	CKEDITOR.plugins.add( 'floating-tools', {
 		requires: 'toolbar',
 
 
 		init: function( editor ) {
-
 
 			/**
 			 * Create the UI elements required by this plugin
@@ -185,21 +181,19 @@
 				event.data.html += output.join( '' );
 			});
 
-
-
 			/**
 			 * Display the floating toolbar
 			 */
 			editor.addCommand( 'showFloatingTools', {
-				exec : function( editor ) {
+				exec : function( editor, status ) {
 					toolbar = get_element();
 					toolbar.setStyles( {
-						'bottom': 28 + 'px'
+						'bottom': status + 28 + 'px'
 					});
+
 					editor.floatingtools.is_visible = true;
 				}
 			});
-
 
 			/**
 			 * Hide the floating toolbar
@@ -210,17 +204,14 @@
 				}
 			});
 
-
 			/**
 			 * ===== Behind the scenes. Getters, setters, calculation, etc.
 			 */
-
-
 			hide_toolbar = function() {
 				if (false != editor.floatingtools.is_visible) {
 					toolbar = get_element();
 					toolbar.setStyles( {
-						'bottom' : -275 + 'px'
+						'bottom': -275 + 'px'
 					});
 					editor.floatingtools.is_visible = false;
 				}
@@ -237,15 +228,12 @@
 				};
 			}
 
-
-
 			/**
 			 * Store the current mouse-position, so we can position the toolbar near the cursor
 			 */
 			get_mousepos = function() {
 				return editor.floatingtools.mousepos;
 			}
-
 
 			/**
 			 * Returns the main toolbar-object (the parent of all items in the floating-toolbar)
@@ -257,8 +245,6 @@
 				}
 				return editor.floatingtools.dom;
 			}
-
-
 
 			/**
 			 * Returns the offset of the editor area (effectively the height of the top-toolbar)
@@ -276,7 +262,6 @@
 				}
 				return editor.floatingtools.editoroffset;
 			}
-
 
 			/**
 			 * Calculates the position for the toolbar
@@ -305,7 +290,6 @@
 				return toolpos;
 			}
 
-
 			/**
 			 * Returns the size of the floating toolbar
 			 */
@@ -320,7 +304,6 @@
 				return editor.floatingtools.toolbarsize;
 			}
 
-
 			/**
 			 * Check if text is selected.
 			 * Retrns true when there is at least 1 character selected in the editor
@@ -330,7 +313,6 @@
 				return text != '';
 			}
 
-
 			/**
 			 * Make the toolbar opaque
 			 */
@@ -339,7 +321,6 @@
 				obj.setOpacity(1);
 			}*/
 
-
 			/**
 			 * Make the toolbar transparent
 			 */
@@ -347,7 +328,6 @@
 				obj = get_element();
 				obj.setOpacity(0.25);
 			},*/
-
 
 			/**
 			 * Get the plugin configuration.
@@ -461,7 +441,6 @@
 
 				return ( editor.toolbar = toolbar ? populateToolbarConfig( toolbar ) : buildToolbarConfig() );
 			},
-
 
 			/**
 			 * Return the default toolbar configuration.
