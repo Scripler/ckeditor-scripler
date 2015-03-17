@@ -16,6 +16,6 @@ CKEDITOR.plugins.add('linkScripler',
 function openLinkTab(e) {
     var parentScope = parent.angular.element(bodyeditor).parent().scope();
     parentScope.showLeftMenu('insert', true);
-    parentScope.insertOptionChosen('showInsertHyperlinkOptions');
+    parentScope.insertOptionChosen('showInsertHyperlinkOptions', true);
     parentScope.$apply();
 }

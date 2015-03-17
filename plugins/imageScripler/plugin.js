@@ -16,6 +16,6 @@ CKEDITOR.plugins.add('imageScripler',
 function openImageTab(e) {
     var parentScope = parent.angular.element(bodyeditor).parent().scope();
     parentScope.showLeftMenu('insert', true);
-    parentScope.insertOptionChosen('showInsertImageOptions');
+    parentScope.insertOptionChosen('showInsertImageOptions', true);
     parentScope.$apply();
 }
