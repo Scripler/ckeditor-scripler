@@ -19,6 +19,7 @@
 			var template = '.%2 a.cke_anchor,' +
 				'.%2 a.cke_anchor_empty' +
 				',.cke_editable.%2 a[name]' +
+				',.cke_editable.%2 a[id]' +
 				',.cke_editable.%2 a[data-cke-saved-name]' +
 				'{' +
 					baseStyle +

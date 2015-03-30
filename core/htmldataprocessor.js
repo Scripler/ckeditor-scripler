@@ -590,7 +590,7 @@
 
 			// Remove empty link but not empty anchor. (#3829)
 			a: function( element ) {
-				if ( !( element.children.length || element.attributes.name || element.attributes[ 'data-cke-saved-name' ] ) )
+				if ( !( element.children.length || element.attributes.name || element.attributes.id || element.attributes[ 'data-cke-saved-name' ] ) )
 					return false;
 			}
 		}
