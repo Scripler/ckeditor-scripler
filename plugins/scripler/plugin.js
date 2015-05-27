@@ -42,24 +42,11 @@ CKEDITOR.plugins.add( 'scripler', {
 		editor.on('selectionChange', changed);
 		editor.on('elementsPathUpdate', changed);
 
-		var toolbarObj;
-
 		editor.on('paste', function (ev) {
 			//Identify empty paragraphs in pasted data
 			if (ev.data.dataValue) {
 				ev.data.dataValue = ev.data.dataValue.replace(/(<p)(?![^>]*empty-paragraph)([^>]*?)(class\s*=\s*["']([^"']*)["']([^>]*))?(>(\s|&nbsp;)*<\/p>)/g, '$1$2 class="$4 empty-paragraph"$5$6');
 			}
-		});
-
-		editor.on('instanceReady', function (event){
-			var editorId = editor.id;
-			var editorTop = document.getElementById( editorId+'_top' );
-			toolbarObj = document.getElementById( editorId+'_toolbox' );
-			editorTop.style.textAlign = 'center';
-
-			toolbarObj.style.display = 'inline-block';
-			toolbarObj.style.background = '#D6D6D6';
-			toolbarObj.style.padding = '3px 0 0 7px';
 		});
 	}
 });
